@@ -5,6 +5,36 @@ Generative AI 101 Bootcamp için hazırlanmış Türkçe RAG (Retrieval-Augmente
 Bu proje, RAG (Retrieval Augmented Generation) mimarisi kullanarak **Metin/WikiRAG-TR** veri seti üzerinde çalışan bir **Soru-Cevap (Q&A)** chatbot geliştirmeyi amaçlamaktadır. Proje, **Gemini API**'ı kullanarak veriye dayalı, doğru ve bağlamsal olarak zenginleştirilmiş yanıtlar sunmayı hedeflemektedir.
 
 
+## RAG Nedir?
+![rag_diagram](assets/rag.png)
+RAG (Retrieval-Augmented Generation), Büyük Dil Modellerini (LLM) harici, özel bilgi kaynaklarıyla birleştiren bir yapay zeka mimarisidir.
+
+RAG, LLM'lerin halüsinasyon yapma eğilimini ve eğitim verileriyle sınırlı kalma sorununu çözmeyi amaçlar.
+
+### RAG Mimarisi Aşamaları
+
+#### 1. İndeksleme (Veri Hazırlama)
+
+* **Veri Yükleme:** Harici dokümanlar (PDF, metin, HTML) sisteme alınır.
+* **Parçalama (Chunking):** Uzun dokümanlar, LLM'in bağlam penceresine sığabilecek boyutta, anlamlı küçük metin parçalarına (chunk) ayrılır.
+* **Vektörleştirme (Embedding):** Her metin parçası, Embedding modelleri kullanılarak sayısal vektörlere dönüştürülür. Bu vektörler, metnin anlamsal içeriğini temsil eder.
+* **Depolama:** Oluşturulan vektörler, hızlı ve verimli benzerlik aramaları için bir Vektör Veri Tabanında (Vector Store) saklanır.
+
+#### 2. Sorgulama ve Üretim
+
+* **Sorgu Vektörleştirme:** Kullanıcının sorduğu soru (prompt), aynı Embedding modeli kullanılarak vektöre dönüştürülür.
+* **Bilgi Alma (Retrieval):** Sorgu vektörü, Vektör Veri Tabanındaki tüm vektörlerle karşılaştırılır. En yüksek anlamsal benzerliğe sahip (en alakalı) metin parçaları geri çekilir.
+* **Prompt Zenginleştirme:** Geri çekilen bu alakalı metin parçaları, orijinal kullanıcı sorusuyla birlikte tek bir bağlam (context) içinde LLM'ye gönderilir.
+* **Yanıt Üretme (Generation):** LLM, harici kaynaklardan gelen bu **bağlama dayalı olarak** nihai, kanıtlanabilir cevabı üretir.
+
+### RAG'ın Temel Faydaları
+
+* **Doğruluk:** Yanıtlar harici verilere dayandığı için halüsinasyon riski azalır.
+* **Güncellik:** Modelin kendisi yeniden eğitilmeden, sadece Vektör Veri Tabanı güncellenerek bilgi anında yenilenir.
+* **Hesap Verebilirlik:** Model, verdiği yanıtın kaynağını (hangi dokümandan alındığını) belirtebilir.
+* **Maliyet Etkinliği:** LLM'i Fine-Tuning yapmaya göre çok daha ucuz ve hızlı bir çözümdür.
+
+
 ## Kullanılan Yöntemler ve Teknolojiler
 
 * Generation Model: Gemini API
