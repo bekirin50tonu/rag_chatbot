@@ -173,3 +173,6 @@ Aşağıdaki görselde `Gradio` ile çalışan chatbot görseli paylaşılmışt
 
 **Proje Colab Adresi:**
 * https://colab.research.google.com/drive/1Aq4dNeWjQdcgGMd9_kvOg2-7VLdt0Ak_?usp=sharing
+
+**Videolu Açıklama**
+* https://youtu.be/7JNrDCKwy2Y
