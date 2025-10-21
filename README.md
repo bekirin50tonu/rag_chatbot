@@ -201,8 +201,15 @@ Bu durum, Retrieval aşamasının kalitesini artırmak için **daha iyi bir Embe
 Aşağıdaki görselde `Gradio` ile çalışan chatbot görseli paylaşılmıştır.
 ![](assets/chatbot.png)
 
+## Bağlantılar
+
 **Proje Colab Adresi:**
 * https://colab.research.google.com/drive/1Aq4dNeWjQdcgGMd9_kvOg2-7VLdt0Ak_?usp=sharing
 
 **Videolu Açıklama**
+
 * https://youtu.be/7JNrDCKwy2Y
+
+**Hugging Face Deploy ve Test**
+* https://huggingface.co/spaces/bekirin50tonu/rag_wiki
+* Orijinal belge sayısı 500 ve parçalanmış belge sayısı 1995 olmak üzere GPU kısıtlamasından dolayı CPU kullanılarak düzenlenmiştir. Bu haliyle 956 saniye içerisinde pipeline aktif olmuş, kullanılabilir hale getirilmiştir.
